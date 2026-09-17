@@ -18,7 +18,7 @@ resource "random_id" "bucket_suffix" {
 }
 
 resource "aws_s3_bucket" "demo" {
-  bucket = "testhydbucket-app-x9k2p7"
+  bucket = "testhydbucket-${random_id.bucket_suffix.hex}"
 
   tags = {
     Environment = "Dev"
