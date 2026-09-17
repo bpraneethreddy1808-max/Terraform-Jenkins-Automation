@@ -1,24 +1,19 @@
 pipeline {
-
-    triggers {
-        githubPush()
-    }
+    agent any
 
     environment {
-        AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
+        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
 
-    agent any
-
     stages {
-
         stage('Checkout') {
             steps {
                 script {
                     dir('terraform') {
                         git branch: 'main',
-                            url: 'https://github.com/JayaShreeCloudTechnology/Terraform-Jenkins-Automation.git'
+                            credentialsId: 'Github-Access',
+                            url: 'https://github.com/bpraneethreddy1808-max/Terraform-Jenkins-Automation.git'
                     }
                 }
             }
@@ -57,4 +52,3 @@ pipeline {
         }
     }
 }
-
