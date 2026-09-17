@@ -9,45 +9,33 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    dir('terraform') {
-                        git branch: 'main',
-                            credentialsId: 'Github-Access',
-                            url: 'https://github.com/bpraneethreddy1808-max/Terraform-Jenkins-Automation.git'
-                    }
-                }
+                git branch: 'main',
+                    credentialsId: 'Github-Access',
+                    url: 'https://github.com/bpraneethreddy1808-max/Terraform-Jenkins-Automation.git'
             }
         }
 
         stage('Terraform Init') {
             steps {
-                dir('terraform') {
-                    sh 'terraform init'
-                }
+                sh 'terraform init'
             }
         }
 
         stage('Terraform Validate') {
             steps {
-                dir('terraform') {
-                    sh 'terraform validate'
-                }
+                sh 'terraform validate'
             }
         }
 
         stage('Terraform Plan') {
             steps {
-                dir('terraform') {
-                    sh 'terraform plan'
-                }
+                sh 'terraform plan'
             }
         }
 
         stage('Terraform Apply') {
             steps {
-                dir('terraform') {
-                    sh 'terraform apply -auto-approve'
-                }
+                sh 'terraform apply -auto-approve'
             }
         }
     }
