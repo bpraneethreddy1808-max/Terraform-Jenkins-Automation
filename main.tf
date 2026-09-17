@@ -15,7 +15,7 @@ resource "aws_instance" "foo" {
 # S3 Bucket
 resource "aws_s3_bucket" "demo" {
   bucket = "testhydbucket-praneeth-unique-998822"
-}
+
   tags = {
     Name        = "Terraform-S3"
     Environment = "Dev"
@@ -31,5 +31,3 @@ resource "aws_vpc" "demo-vpc" {
     Name = "test-vpc"
   }
 }
-
-
