@@ -14,7 +14,7 @@ resource "aws_instance" "foo" {
 
 # S3 Bucket
 resource "aws_s3_bucket" "demo" {
-  bucket = "testhydbucket20260910"
+  bucket = "praneeth-tf-s3-20260917-936481""
 
   tags = {
     Name        = "Terraform-S3"
