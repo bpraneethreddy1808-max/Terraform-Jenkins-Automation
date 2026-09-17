@@ -13,17 +13,8 @@ resource "aws_instance" "foo" {
 }
 
 # S3 Bucket
-resource "random_id" "bucket_suffix" {
-  byte_length = 4
-}
-
 resource "aws_s3_bucket" "demo" {
-  bucket = "testhydbucket-${random_id.bucket_suffix.hex}"
-
-  tags = {
-    Environment = "Dev"
-    Name        = "Terraform-S3"
-  }
+  bucket = "testhydbucket-praneeth-unique-998822"
 }
   tags = {
     Name        = "Terraform-S3"
